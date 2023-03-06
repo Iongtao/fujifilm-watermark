@@ -1,0 +1,23 @@
+{
+	"compilerOptions": {
+		"module": "ESNext",
+		"sourceMap": true,
+		"outDir": "./dist/",
+		"noImplicitAny": true,
+		"target": "ES5",
+		"jsx": "react",
+		"allowJs": true,
+		"moduleResolution": "node",
+		"allowSyntheticDefaultImports": true,
+		"importsNotUsedAsValues": "preserve",
+		"strictNullChecks": true
+	},
+	"exclude": ["node_modules"],
+	"include": [
+		"src/**/*.ts",
+		"src/**/*.tsx",
+		"types/*.ts",
+		".eslintrc.js",
+		"./webpack.config.js"
+	]
+}
