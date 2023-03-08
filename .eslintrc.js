@@ -22,12 +22,15 @@ module.exports = {
 		project: ['tsconfig.json'],
 	},
 	plugins: ['react'],
-	rules: {
-		'@typescript-eslint/no-var-requires': 'off',
-	},
 	settings: {
 		react: {
 			version: 'detect',
 		},
+	},
+	rules: {
+		'@typescript-eslint/no-var-requires': 'off',
+		'@typescript-eslint/no-non-null-assertion': 'warn',
+		'@typescript-eslint/explicit-function-return-type': 'warn',
+		"@typescript-eslint/no-non-null-assertion": "off"
 	},
 }
