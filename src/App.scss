@@ -1,0 +1,14 @@
+@import './style.scss';
+
+.app {
+	display: flex;
+	align-items: center;
+	max-height: 100vh;
+}
+
+@include responsive($width-medium) {
+	.app {
+		height: 100vh;
+		flex-direction: column;
+	}
+}
