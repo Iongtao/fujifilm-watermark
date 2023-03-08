@@ -1,0 +1,9 @@
+# The default end of line character.
+#  - \n: LF
+#  - \r\n: CRLF
+#  - auto: Uses operating system specific end of line character.
+[*]
+end_of_line = lf
+insert_final_newline = true
+indent_style = tab
+indent_size = 2
