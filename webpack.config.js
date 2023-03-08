@@ -1,25 +1,18 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+
+const devMode = process.env.NODE_ENV !== 'production'
 
 module.exports = {
 	mode: 'development',
-	entry: './src/index.ts',
+	entry: './src/index.tsx',
 	output: {
 		filename: '[name].[contenthash].js',
 		path: path.resolve(__dirname, 'dist'),
 		clean: true,
 	},
-	plugins: [
-		new HtmlWebpackPlugin({
-			title: 'development',
-		}),
-		new ForkTsCheckerWebpackPlugin({
-			eslint: {
-				files: './src/**/*.{ts,tsx,js,jsx}',
-			},
-		}),
-	],
 	module: {
 		rules: [
 			{
@@ -27,8 +20,18 @@ module.exports = {
 				type: 'asset/resource',
 			},
 			{
-				test: /\.css$/i,
-				use: ['style-loader', 'css-loader'],
+				test: /\.(s[ac]|c)ss$/i,
+				use: [
+					MiniCssExtractPlugin.loader,
+					'css-loader',
+					'postcss-loader',
+					{
+						loader: 'sass-loader',
+						options: {
+							implementation: require('sass'),
+						},
+					},
+				],
 			},
 			{
 				test: /\.tsx?$/,
@@ -46,6 +49,7 @@ module.exports = {
 	devtool: 'eval-cheap-module-source-map',
 	devServer: {
 		static: './dist',
+		hot: true,
 	},
 	optimization: {
 		moduleIds: 'deterministic',
@@ -60,4 +64,15 @@ module.exports = {
 			},
 		},
 	},
+	plugins: [
+		new HtmlWebpackPlugin({
+			title: 'development',
+			template: path.resolve(__dirname, './public/index.html'),
+		}),
+		new ForkTsCheckerWebpackPlugin(),
+		new MiniCssExtractPlugin({
+			filename: devMode ? '[name].css' : '[name].[contenthash].css',
+			chunkFilename: devMode ? '[id].css' : '[id].[contenthash].css',
+		}),
+	],
 }

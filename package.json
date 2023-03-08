@@ -15,6 +15,8 @@
 	"license": "ISC",
 	"devDependencies": {
 		"@types/lodash": "^4.14.191",
+		"@types/react": "^18.0.28",
+		"@types/react-dom": "^18.0.11",
 		"@typescript-eslint/eslint-plugin": "^5.0.0",
 		"@typescript-eslint/parser": "^5.54.0",
 		"css-loader": "^6.7.3",
@@ -31,7 +33,13 @@
 		"html-webpack-plugin": "^5.5.0",
 		"husky": "^8.0.3",
 		"lint-staged": "^13.1.2",
+		"mini-css-extract-plugin": "^2.7.2",
+		"postcss": "^8.4.21",
+		"postcss-loader": "^7.0.2",
+		"postcss-preset-env": "^8.0.1",
 		"prettier": "^2.8.4",
+		"sass": "^1.58.3",
+		"sass-loader": "^13.2.0",
 		"style-loader": "^3.3.1",
 		"ts-loader": "^9.4.2",
 		"typescript": "*",
@@ -41,6 +49,7 @@
 	},
 	"dependencies": {
 		"lodash": "^4.17.21",
+		"modern-css-reset": "^1.4.0",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0"
 	}
