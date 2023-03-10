@@ -10,7 +10,11 @@
 		"moduleResolution": "node",
 		"allowSyntheticDefaultImports": true,
 		"importsNotUsedAsValues": "preserve",
-		"strictNullChecks": true
+		"strictNullChecks": true,
+		"baseUrl": ".",
+		"paths": {
+			"~/*": ["./src/*"]
+		}
 	},
 	"exclude": ["node_modules"],
 	"include": [

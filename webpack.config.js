@@ -11,6 +11,7 @@ module.exports = {
 	output: {
 		filename: '[name].[contenthash].js',
 		path: path.resolve(__dirname, 'dist'),
+		assetModuleFilename: 'images/[hash][ext][query]',
 		clean: true,
 	},
 	module: {
@@ -45,6 +46,9 @@ module.exports = {
 	},
 	resolve: {
 		extensions: ['.tsx', '.ts', '.js'],
+		alias: {
+			'~': path.resolve(__dirname, 'src'),
+		},
 	},
 	devtool: 'eval-cheap-module-source-map',
 	devServer: {

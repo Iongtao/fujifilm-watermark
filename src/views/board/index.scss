@@ -1,8 +1,11 @@
 .canvas-box {
-	display: flex;
 	width: 100%;
-	max-height: 100vh;
+	height: 100%;
 	padding: 16px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-grow: 1;
 
 	canvas {
 		width: 100%;
